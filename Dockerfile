@@ -1,7 +1,10 @@
 FROM amazoncorretto:21-alpine
 
+ARG JAR_FILE
+
+COPY target/${JAR_FILE} app.jar
+COPY entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
+
 EXPOSE 8080 8443
-
-COPY target/product-service-0.0.1-SNAPSHOT.jar app.jar
-
-CMD ["java", "-jar", "app.jar"]
+CMD ["entrypoint.sh"]
