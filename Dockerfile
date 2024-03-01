@@ -1,4 +1,4 @@
-FROM amazoncorretto:21-alpine
+FROM openjdk:21-slim
 
 ARG JAR_FILE
 
