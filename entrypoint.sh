@@ -1,3 +1,3 @@
 java -version
 
-java -jar /apps/app.jar
+java -jar app.jar
