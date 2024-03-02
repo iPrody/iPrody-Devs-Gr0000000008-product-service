@@ -1,10 +1,11 @@
 FROM openjdk:21-slim
 
-ARG JAR_FILE
+WORKDIR /apps
 
-COPY target/${JAR_FILE} app.jar
-COPY entrypoint.sh entrypoint.sh
-RUN chmod +x entrypoint.sh
+ARG JAR_FILE
+COPY target/${JAR_FILE} /apps/app.jar
+COPY entrypoint.sh /apps/entrypoint.sh
+RUN chmod +x /apps/entrypoint.sh
 
 EXPOSE 8080 8443
-CMD ["entrypoint.sh"]
+CMD ["/apps/entrypoint.sh"]
