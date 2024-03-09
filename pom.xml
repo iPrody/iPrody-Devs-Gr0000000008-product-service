@@ -25,19 +25,31 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<configuration>
-						<skip>true</skip>
-					</configuration>
-				</plugin>
-				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>3.3.1</version>
 					<configuration>
-						<configLocation>${basedir}/config/checkstyle/checkstyle.xml</configLocation>
-						<propertiesLocation>${basedir}/config/checkstyle_maven.properties</propertiesLocation>
+						<configLocation>config/checkstyle/checkstyle.xml</configLocation>
+						<propertiesLocation>config/checkstyle_maven.properties</propertiesLocation>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<excludes>
+							<exclude>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok</artifactId>
+							</exclude>
+						</excludes>
 					</configuration>
 				</plugin>
 			</plugins>
