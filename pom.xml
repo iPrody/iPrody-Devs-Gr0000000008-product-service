@@ -19,7 +19,6 @@
 
 	<properties>
 		<java.version>21</java.version>
-		<root.directory>${basedir}</root.directory>
 	</properties>
 
 	<build>
@@ -37,8 +36,8 @@
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>3.3.1</version>
 					<configuration>
-						<configLocation>${root.directory}/config/checkstyle/checkstyle.xml</configLocation>
-						<propertiesLocation>${root.directory}config/checkstyle_maven.properties</propertiesLocation>
+						<configLocation>${basedir}/config/checkstyle/checkstyle.xml</configLocation>
+						<propertiesLocation>${basedir}/config/checkstyle_maven.properties</propertiesLocation>
 					</configuration>
 				</plugin>
 			</plugins>
